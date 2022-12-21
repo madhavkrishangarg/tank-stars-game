@@ -17,7 +17,8 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
 import java.io.Serializable;
 
-public class LoginMenu implements Screen, Serializable {
+public class
+LoginMenu implements Screen, Serializable {
     SpriteBatch batch;
     Texture image;
     private Stage Menu;
@@ -27,7 +28,7 @@ public class LoginMenu implements Screen, Serializable {
         Skin default_skin=new Skin(Gdx.files.internal("skin/uiskin.json"));
         tank=g;
         Menu=new Stage(new ScreenViewport());
-
+        Gdx.input.setInputProcessor(Menu);
         TextButton enter = new TextButton("Enter",MyGdxGame.default_skin);
         enter.setSize(Gdx.graphics.getWidth()/5,Gdx.graphics.getHeight()/14);
         enter.setPosition(Gdx.graphics.getWidth()/2-enter.getWidth()/2, 100);
@@ -47,7 +48,7 @@ public class LoginMenu implements Screen, Serializable {
     }
     @Override
     public void show() {
-        Gdx.input.setInputProcessor(Menu);
+
     }
 
     @Override

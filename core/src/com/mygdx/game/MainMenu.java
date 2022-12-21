@@ -78,7 +78,7 @@ public class MainMenu implements Screen, Serializable {
         exit.addListener(new InputListener(){
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 Gdx.app.exit();
-                System.exit(-1);
+                System.exit(0);
             }
 
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button){
