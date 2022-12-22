@@ -14,6 +14,14 @@ public class Tanks extends Sprite {
     Texture tankimage2;
     int tank1_health = 100;
     int tank2_health = 100;
+    public final Texture health_left;
+    public final Texture health_right;
+    public final Texture angle_left;
+    public final Texture angle_right;
+    public final Rectangle anglebar_left;
+    public final Rectangle anglebar_right;
+    public final Rectangle healthbar_left;
+    public final Rectangle healthbar_right;
 
     private Vector2 v;
     private float speed;
@@ -45,13 +53,39 @@ public class Tanks extends Sprite {
 
         tank1.x = 50;
         tank1.y = 120;
-        tank1.width = 62;
-        tank1.height = 62;
+        tank1.width = 65;
+        tank1.height = 65;
 
         tank2.x = 480;
         tank2.y = 120;
-        tank2.width = 62;
-        tank2.height = 62;
+        tank2.width = 65;
+        tank2.height = 65;
+
+        anglebar_left = new Rectangle();
+        anglebar_right = new Rectangle();
+        healthbar_left = new Rectangle();
+        healthbar_right = new Rectangle();
+        anglebar_left.x = 40;
+        anglebar_left.y = 80;
+        anglebar_left.width = 100;
+        anglebar_left.height = 50;
+        anglebar_right.x = 430;
+        anglebar_right.y = 80;
+        anglebar_right.width = 100;
+        anglebar_right.height = 50;
+        angle_left = new Texture("yellow_rect.png");
+        angle_right = new Texture("yellow_rect.png");
+        health_left = new Texture("green_rect.png");
+        health_right = new Texture("green_rect.png");
+        healthbar_left.x = 100;
+        healthbar_left.y = 380;
+        healthbar_left.height = 50;
+        healthbar_left.width = 100;
+
+        healthbar_right.x = 420;
+        healthbar_right.y = 380;
+        healthbar_right.height = 50;
+        healthbar_right.width = 100;
     }
 
     public Rectangle getTank1() {

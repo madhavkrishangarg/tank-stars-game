@@ -35,7 +35,7 @@ public class TankSelect implements Screen, Serializable {
         select1.setPosition(Gdx.graphics.getWidth()/2-260, 100);
         select1.addListener(new InputListener(){
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                tank.setScreen(new TankStar(tank,1));
+                tank.setScreen(new TankStar(tank,1,new Tanks(1)));
             }
 
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button){
@@ -48,7 +48,7 @@ public class TankSelect implements Screen, Serializable {
         select2.setPosition(Gdx.graphics.getWidth()/2-select2.getWidth()/2, 100);
         select2.addListener(new InputListener(){
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                tank.setScreen(new TankStar(tank,2));
+                tank.setScreen(new TankStar(tank,2,new Tanks(2)));
             }
 
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button){
@@ -61,7 +61,7 @@ public class TankSelect implements Screen, Serializable {
         select3.setPosition(Gdx.graphics.getWidth()/2+130, 100);
         select3.addListener(new InputListener(){
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                tank.setScreen(new TankStar(tank,3));
+                tank.setScreen(new TankStar(tank,3,new Tanks(3)));
             }
 
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button){
