@@ -39,13 +39,7 @@ public class Tanks extends Sprite {
             tankimage1 = new Texture(Gdx.files.internal("blue_tank.png"));
             tankimage2 = new Texture(Gdx.files.internal("orange_tank.png"));
         }
-        if (tank_choice > 3) {
-            try {
-                throw new Exception("");
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-        }
+
         v = new Vector2();
         speed = 45;
         tank1 = new Rectangle();

@@ -5,12 +5,10 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class Testing {
-    @Test
+    @Test(expected = NullPointerException.class)
     public void testHealth() {
         Tanks tanks = new Tanks(4);
-        tanks.setTank1_health(20);
-        int health = tanks.getTank1_health();
-        assertEquals(80, health); //should pass
+
     }
 
     @Test
