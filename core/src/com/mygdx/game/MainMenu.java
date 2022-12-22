@@ -64,7 +64,7 @@ public class MainMenu implements Screen, Serializable {
         saved_games.setPosition(Gdx.graphics.getWidth()-210, new_game.getY()- saved_games.getHeight()-20);
         saved_games.addListener(new InputListener(){
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                tank.setScreen(new TankStar(tank));
+                //tank.setScreen(new TankStar(tank,));
             }
 
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button){

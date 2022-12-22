@@ -11,19 +11,29 @@ public class Tanks extends Sprite {
 
     Texture tankimage1;
     Texture tankimage2;
+    int tank1_health=100;
+    int tank2_health=100;
 
     private Vector2 v;
     private float speed;
 
-    public Tanks(){
-        tankimage1 = new Texture(Gdx.files.internal("green_tank.png"));
+    public Tanks(int tank_choice){
+        if(tank_choice==1) {
+            tankimage1 = new Texture(Gdx.files.internal("green_tank.png"));
+        }
+        if(tank_choice==2) {
+            tankimage1 = new Texture(Gdx.files.internal("yellow_tank.png"));
+        }
+        if(tank_choice==3) {
+            tankimage1 = new Texture(Gdx.files.internal("blue_tank.png"));
+        }
         tankimage2 = new Texture(Gdx.files.internal("orange_tank.png"));
         v = new Vector2();
         speed = 45;
         tank1 = new Rectangle();
         tank2 = new Rectangle();
 
-        tank1.x = 10;
+        tank1.x = 50;
         tank1.y = 120;
         tank1.width = 62;
         tank1.height = 62;

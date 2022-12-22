@@ -17,25 +17,24 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
 import java.io.Serializable;
 
-public class TankSelect implements Screen, Serializable {
-
+public class PauseMenu implements Screen, Serializable {
     SpriteBatch batch;
     Texture image;
     private Stage Menu;
     private Game tank;
-    private int choice;
 
-    public TankSelect(Game g){
+    public PauseMenu(Game g){
         Skin default_skin=new Skin(Gdx.files.internal("skin/uiskin.json"));
         tank=g;
         Menu=new Stage(new ScreenViewport());
+        Gdx.input.setInputProcessor(Menu);
 
-        TextButton select1 = new TextButton("Select",MyGdxGame.default_skin);
-        select1.setSize(Gdx.graphics.getWidth()/5,Gdx.graphics.getHeight()/14);
-        select1.setPosition(Gdx.graphics.getWidth()/2-260, 100);
-        select1.addListener(new InputListener(){
+        TextButton restart = new TextButton("Restart",MyGdxGame.default_skin);
+        restart.setSize(Gdx.graphics.getWidth()/5,Gdx.graphics.getHeight()/14);
+        restart.setPosition(Gdx.graphics.getWidth()/2-restart.getWidth()/2, 235);
+        restart.addListener(new InputListener(){
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                tank.setScreen(new TankStar(tank,1));
+                tank.setScreen(new TankSelect(tank));
             }
 
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button){
@@ -43,12 +42,12 @@ public class TankSelect implements Screen, Serializable {
             }
         });
 
-        TextButton select2 = new TextButton("Select",MyGdxGame.default_skin);
-        select2.setSize(Gdx.graphics.getWidth()/5,Gdx.graphics.getHeight()/14);
-        select2.setPosition(Gdx.graphics.getWidth()/2-select2.getWidth()/2, 100);
-        select2.addListener(new InputListener(){
+        TextButton quit = new TextButton("Quit",MyGdxGame.default_skin);
+        quit.setSize(Gdx.graphics.getWidth()/5,Gdx.graphics.getHeight()/14);
+        quit.setPosition(Gdx.graphics.getWidth()/2-quit.getWidth()/2, 150);
+        quit.addListener(new InputListener(){
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                tank.setScreen(new TankStar(tank,2));
+                tank.setScreen(new MainMenu(tank));
             }
 
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button){
@@ -56,28 +55,15 @@ public class TankSelect implements Screen, Serializable {
             }
         });
 
-        TextButton select3 = new TextButton("Select",MyGdxGame.default_skin);
-        select3.setSize(Gdx.graphics.getWidth()/5,Gdx.graphics.getHeight()/14);
-        select3.setPosition(Gdx.graphics.getWidth()/2+130, 100);
-        select3.addListener(new InputListener(){
-            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                tank.setScreen(new TankStar(tank,3));
-            }
-
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button){
-                return true;
-            }
-        });
         batch=new SpriteBatch();
-        image=new Texture("tank_select.jpg");
-        Menu.addActor(select1);
-        Menu.addActor(select2);
-        Menu.addActor(select3);
+        image=new Texture("game_over.jpg");
+        Menu.addActor(restart);
+        Menu.addActor(quit);
 
     }
     @Override
     public void show() {
-        Gdx.input.setInputProcessor(Menu);
+
     }
 
     @Override
