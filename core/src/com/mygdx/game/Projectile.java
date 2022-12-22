@@ -2,13 +2,12 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
-public class Projectile implements Movement{
-    private static float a=4;
-    private static float b=4;
-    private static Rectangle rct;
+public class Projectile extends Movement {
+    private static float a = 4;
+    private static float b = 4;
+
     public boolean remove = false;
     public float gravity;
     public Vector2 start_velocity;
@@ -18,19 +17,14 @@ public class Projectile implements Movement{
     private float y;
     private Texture shot;
 
-    public float getX() {
-        return x;
-    }
-
-    public float getY() {
-        return y;
-    }
-
     public Projectile(float x, float y) {
         //this.game = game;
-        if (shot == null) {
+        try {
             shot = new Texture("cannon_ball.png");
+        } catch (Exception e) {
+
         }
+
         this.x = x;
         this.y = y;
         this.gravity = -10;
@@ -53,17 +47,20 @@ public class Projectile implements Movement{
 
     }
 
-    public void setRectangleDimensions() {
-        rct.width = 1;
-        rct.height = 10;
-    }
-
     public static float getA() {
         return a;
     }
 
     public static float getB() {
         return b;
+    }
+
+    public float getX() {
+        return x;
+    }
+
+    public float getY() {
+        return y;
     }
 
     public void update(float t) {

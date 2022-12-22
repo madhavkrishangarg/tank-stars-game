@@ -5,9 +5,9 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
-public class SecondProjectile implements Movement{
-    private static float a=4;
-    private static float b=4;
+public class SecondProjectile extends Movement {
+    private static float a = 4;
+    private static float b = 4;
     private static Rectangle rct;
     public boolean remove = false;
     public float gravity;
@@ -18,19 +18,14 @@ public class SecondProjectile implements Movement{
     private float y;
     private Texture shot;
 
-    public float getX() {
-        return x;
-    }
-
-    public float getY() {
-        return y;
-    }
-
     public SecondProjectile(float x, float y) {
         //this.game = game;
-        if (shot == null) {
+        try {
             shot = new Texture("cannon_ball.png");
+        } catch (Exception e) {
+
         }
+
         this.x = x;
         this.y = y;
         this.gravity = -10;
@@ -53,11 +48,6 @@ public class SecondProjectile implements Movement{
 
     }
 
-    public void setRectangleDimensions() {
-        rct.width = 1;
-        rct.height = 10;
-    }
-
     public static float getA() {
         return a;
     }
@@ -66,8 +56,21 @@ public class SecondProjectile implements Movement{
         return b;
     }
 
+    public float getX() {
+        return x;
+    }
+
+    public float getY() {
+        return y;
+    }
+
+    public void setRectangleDimensions() {
+        rct.width = 1;
+        rct.height = 10;
+    }
+
     public void update(float t) {
-        x = -1*start_velocity.x * t + x;
+        x = -1 * start_velocity.x * t + x;
         y = 0.5f * gravity * t * t + start_velocity.y * t + y;
         if (this.y < 130) {
             remove = true;
