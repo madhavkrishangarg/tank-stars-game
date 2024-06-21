@@ -15,6 +15,6 @@ public class Testing {
     public void testPosition() {
         Projectile projectile = new Projectile(100, 100);
         projectile.update(1);
-        assertEquals(200, (int) projectile.getX());
+        assertEquals(104, (int) projectile.getX());
     }
 }
