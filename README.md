@@ -10,3 +10,7 @@ Testing: Automated JUnit testing
 
 Optimization: Implemented design patterns for enhanced performance
 
+
+To run:
+./gradlew build
+./gradlew run
